@@ -1,14 +1,38 @@
 import React, { useEffect, useState } from "react";
+import { generatePrompt } from "../utils/generatePrompt";
 import Letter from "./Letter";
 import "../styles/turn.css";
+import Prompt from "./Prompt";
 
 const gameLetters = ["S", "T", "I", "C", "K"];
 
-const Turn = ({ players, setPlayers, setWinner }) => {
+const Turn = ({ players, setPlayers, setWinner, prompts }) => {
   const [challengeSet, setChallengeSet] = useState(false);
   const [currentPlayer, setCurrentPlayer] = useState(players[0]);
   const [challengeSetter, setChallengeSetter] = useState(true);
   const [challengeAttempts, setChallengeAttemps] = useState(0);
+  const [showPrompt, setShowPrompt] = useState(false);
+  const [prompt, setPrompt] = useState("");
+
+  useEffect(() => {
+    if(prompts === "true") {
+      console.log("here")
+      const newPrompt = generatePrompt();
+      console.log(newPrompt);
+      setPrompt(newPrompt);
+      setShowPrompt(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (prompts === "true" && challengeSetter) {
+      setPrompt(generatePrompt());
+      setShowPrompt(true);
+    } else if (prompts === "true"  && !challengeSetter) {
+      setShowPrompt(false);
+      setPrompt("");
+    }
+  }, [challengeSetter]);
 
   useEffect(() => {
     if (challengeAttempts === players.length - 1) {
@@ -87,11 +111,12 @@ const Turn = ({ players, setPlayers, setWinner }) => {
   return (
     <div className="turn-container">
       <h1>{currentPlayer.name}'s Turn</h1>
-      <div className="letters-container">
+      <div className="turn-letters-container">
         {currentPlayer.letters.map((letter) => (
           <Letter letter={letter} key={letter} size="large" />
         ))}
       </div>
+      {showPrompt && <Prompt text={prompt.prompt} />}
       <h2>{challengeSet ? "Attempt" : "Setting Challenge"}</h2>
       <div
         style={{

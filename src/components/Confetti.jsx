@@ -12,7 +12,7 @@ const ConfettiDisplay = () => {
   return (
     <>
       {confetti && (
-        <Confetti width={width} height={height} recycle={false} numberOfPieces={200} />
+        <Confetti width={width} height={height} recycle={false} numberOfPieces={1000} />
       )}
     </>
   );

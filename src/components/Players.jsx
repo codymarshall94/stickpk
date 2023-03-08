@@ -1,5 +1,11 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "../styles/players.css";
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
 
 const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
   const [name, setName] = useState(player.name);
@@ -22,7 +28,14 @@ const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
   };
 
   return (
-    <div className="player-container">
+    <motion.div
+      className="player-container"
+      key={player.id}
+      variants={fadeIn}
+      initial="hidden"
+      animate="visible"
+      exit={{ opacity: 0 }}
+    >
       {isEditing ? (
         <input
           type="text"
@@ -36,20 +49,20 @@ const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
       )}
       <div className="btn-container">
         {isEditing ? (
-          <button
-            className="player-btn success"
-            onClick={() => handleSave()}
-          >
+          <button className="player-btn success" onClick={() => handleSave()}>
             <img src={require("../icons/icons8-done-24.png")} alt="save" />
           </button>
         ) : (
           <>
-          <button className="player-btn edit" onClick={handleEdit}>
-            <img src={require("../icons/icons8-edit-24.png")} alt="edit" />
-          </button>
-          <button className="player-btn cancel" onClick={() => deletePlayer(player)}>
-            <img src={require("../icons/icons8-close-24.png")} alt="delete" />
-          </button>
+            <button className="player-btn edit" onClick={handleEdit}>
+              <img src={require("../icons/icons8-edit-24.png")} alt="edit" />
+            </button>
+            <button
+              className="player-btn cancel"
+              onClick={() => deletePlayer(player)}
+            >
+              <img src={require("../icons/icons8-close-24.png")} alt="delete" />
+            </button>
           </>
         )}
         {isEditing && (
@@ -58,17 +71,16 @@ const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
           </button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const Players = ({ setPlayers, players }) => {
-
   const handleDelete = (player) => {
     const newPlayers = players.filter((p) => p.id !== player.id);
     setPlayers(newPlayers);
   };
-  
+
   const handleAdd = () => {
     const newPlayer = {
       id: players.length + 1,

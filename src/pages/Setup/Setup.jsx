@@ -25,7 +25,7 @@ const forwardVariant = {
 
 const backwardVariant = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, x: 0, transition: { timing: 0.5 } },
+  visible: { opacity: 1, x: 0, transition: { timing: 0.1 } },
   exit: { x: "100vw", transition: { ease: "easeIn" } },
 };
 
@@ -33,25 +33,24 @@ const Setup = ({ players, setPlayers, setPrompts }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isRadioChecked, setIsRadioChecked] = useState("false");
   const [variants, setVariants] = useState(forwardVariant);
+  const [questionChange, setQuestionChange] = useState(false);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
-
-  //use framer motion to animate the questions
-
-  useEffect(() => {
-    setShow(true);
-  }, []);
 
   useEffect(() => {
     setShow(false);
     setTimeout(() => {
       setShow(true);
     }, 400);
-  }, [currentQuestion]);
+  }, [questionChange]);
 
   const handlePrompts = (e) => {
     setIsRadioChecked(e.target.value);
     setPrompts(e.target.value);
+  };
+
+  const handleQuestionChange = () => {
+    setQuestionChange(!questionChange);
   };
 
   const handleNext = () => {
@@ -59,14 +58,20 @@ const Setup = ({ players, setPlayers, setPrompts }) => {
       navigate("/game");
       return;
     }
-    setCurrentQuestion(currentQuestion + 1);
     setVariants(forwardVariant);
+    handleQuestionChange();
+    setTimeout(() => {
+      setCurrentQuestion(currentQuestion + 1);
+    }, 400);
   };
 
   const handleBack = () => {
     if (currentQuestion === 0) return;
-    setCurrentQuestion(currentQuestion - 1);
     setVariants(backwardVariant);
+    handleQuestionChange();
+    setTimeout(() => {
+      setCurrentQuestion(currentQuestion - 1);
+    }, 400);
   };
 
   return (

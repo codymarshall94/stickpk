@@ -12,7 +12,7 @@
   list-style: none;
 }
 
-.letters-container {
+.turn-letters-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

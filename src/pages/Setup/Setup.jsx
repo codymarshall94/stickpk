@@ -15,12 +15,13 @@ const questions = [
   },
 ];
 
-const Setup = ({ players, setPlayers }) => {
+const Setup = ({ players, setPlayers, setPrompts }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [prompts, setPrompts] = useState(false);
+  const [isRadioChecked, setIsRadioChecked] = useState("false");
   const navigate = useNavigate();
 
   const handlePrompts = (e) => {
+    setIsRadioChecked(e.target.value);
     setPrompts(e.target.value);
   };
 
@@ -49,6 +50,7 @@ const Setup = ({ players, setPlayers }) => {
             type="radio"
             value="true"
             name="prompt"
+            checked={isRadioChecked === "true"}
             onChange={handlePrompts}
           />
           <label>Yes</label>
@@ -57,22 +59,35 @@ const Setup = ({ players, setPlayers }) => {
             value="false"
             name="prompt"
             onChange={handlePrompts}
+            checked={isRadioChecked === "false"}
           />
           <label>No</label>
         </div>
       )}
       <div className="setup-btn-container">
-        {currentQuestion === 0 && players.length > 0 ? (
+        {currentQuestion === 0 && players.length > 1 && (
           <button className="setup-btn" onClick={handleNext}>
             Next
           </button>
-        ) : (
+        )}
+
+        {currentQuestion === 1 && (
           <>
             <button className="setup-btn" onClick={handleBack}>
               Back
             </button>
             <button className="setup-btn" onClick={handleNext}>
               Next
+            </button>
+          </>
+        )}
+        {currentQuestion === 2 && (
+          <>
+            <button className="setup-btn" onClick={handleBack}>
+              Back
+            </button>
+            <button className="setup-btn" onClick={handleNext}>
+              Lets Go
             </button>
           </>
         )}

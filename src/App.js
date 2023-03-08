@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [players, setPlayers] = useState([]);
+  const [prompts, setPrompts] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("players", JSON.stringify(players));
@@ -24,11 +25,19 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route
           path="/setup"
-          element={<Setup players={players} setPlayers={setPlayers} />}
+          element={
+            <Setup
+              players={players}
+              setPlayers={setPlayers}
+              setPrompts={setPrompts}
+            />
+          }
         />
         <Route
           path="/game"
-          element={<Game players={players} setPlayers={setPlayers} />}
+          element={
+            <Game players={players} setPlayers={setPlayers} prompts={prompts} setPrompts={setPrompts}/>
+          }
         />
         <Route path="*" element={<h1>404</h1>} />
       </Routes>

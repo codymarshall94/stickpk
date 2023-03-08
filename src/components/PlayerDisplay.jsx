@@ -8,7 +8,7 @@ const PlayerDisplay = ({ players }) => {
           <p className="player-name">{player.name}</p>
           <div className="letters-container">
             {player.letters.map((letter) => (
-              <Letter key={letter.id} letter={letter} size="small" />
+              <Letter key={letter} letter={letter} size="small" />
             ))}
           </div>
         </div>

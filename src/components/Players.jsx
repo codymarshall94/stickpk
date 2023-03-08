@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "../styles/players.css";
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
 
 const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
   const [name, setName] = useState(player.name);
@@ -30,10 +25,8 @@ const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
   return (
     <motion.div
       className="player-container"
-      key={player.id}
-      variants={fadeIn}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       {isEditing ? (
@@ -101,9 +94,9 @@ const Players = ({ setPlayers, players }) => {
   };
 
   return (
-    <div>
+    <>
       {players.length !== 0 && (
-        <div>
+        <AnimatePresence>
           {players.map((player) => (
             <EditablePlayer
               key={player.id}
@@ -113,12 +106,13 @@ const Players = ({ setPlayers, players }) => {
               deletePlayer={handleDelete}
             />
           ))}
-        </div>
+        </AnimatePresence>
       )}
+
       <button className="add-player-btn" onClick={() => handleAdd()}>
         Add Player +
       </button>
-    </div>
+    </>
   );
 };
 

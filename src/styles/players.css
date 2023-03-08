@@ -1,0 +1,72 @@
+.player-container {
+  display: flex;
+  max-height: 30px;
+  margin: 0.5rem 0;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  align-items: center;
+  background-color: #383d6e;
+  justify-content: space-between;
+}
+
+.player-name,
+.player-input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+.player-input {
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+.add-player-btn {
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #6B59FC;
+  width: 100%;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.player-btn {
+  min-width: 10%;
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.success {
+  background-color: #4CAE51;
+}
+
+.cancel {
+  background-color: #D65151;
+}
+
+.edit {
+  background-color: #695AFE;
+}
+
+.primary {
+  background-color: #6B59FC;
+}

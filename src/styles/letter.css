@@ -1,0 +1,20 @@
+.letter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    postion: relative;
+	border: 1px solid;
+	border-radius: 12px;
+    background-color: #383d6e;
+    margin: 0 .15rem;
+}
+
+.large {
+    width: 51px;
+    height: 51px;
+}
+
+.small {
+    width: 30px;
+    height: 30px;
+}

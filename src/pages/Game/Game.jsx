@@ -5,8 +5,9 @@ import { AnimatePresence } from "framer-motion";
 import Modal from "../../components/Modal";
 import Winner from "../../components/Winner";
 import PlayerDisplay from "../../components/PlayerDisplay";
+import { Link } from "react-router-dom";
 
-const Game = ({ players, setPlayers }) => {
+const Game = ({ players, setPlayers, prompts, setPrompts }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [winner, setWinner] = useState(false);
 
@@ -22,20 +23,40 @@ const Game = ({ players, setPlayers }) => {
     setPlayers(localPlayers);
     setModalOpen(false);
     setWinner(false);
+    setPrompts(false);
   };
 
   return (
     <div className="game-container">
       <div>
-        <Turn players={players} setPlayers={setPlayers} setWinner={setWinner} />
+        <Turn
+          players={players}
+          setPlayers={setPlayers}
+          setWinner={setWinner}
+          prompts={prompts}
+        />
       </div>
-      <button
-        className="score-btn player-btn primary"
-        style={{ margin: "0 auto" }}
-        onClick={() => setModalOpen(true)}
-      >
-        <img src={require("../../icons/icons8-scorecard-24.png")} alt="score" />
-      </button>
+      <div className="game-btn-container">
+        <button
+          className="game-btn player-btn primary"
+          onClick={() => setModalOpen(true)}
+        >
+          <img
+            src={require("../../icons/icons8-scorecard-24.png")}
+            alt="score"
+          />
+        </button>
+        <Link
+          to="/"
+          className="game-btn player-btn cancel"
+          onClick={() => resetGame()}
+        >
+          <img
+            src={require("../../icons/icons8-logout-rounded-left-24.png")}
+            alt="exit game"
+          />
+        </Link>
+      </div>
       <AnimatePresence initial={false} mode="out-in">
         {modalOpen && (
           <Modal

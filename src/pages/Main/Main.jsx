@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import "./main.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const topDropVariants = {
   hidden: {
@@ -11,7 +11,7 @@ const topDropVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: .5,
+      delay: 0.5,
       duration: 2,
       type: "spring",
       damping: 25,

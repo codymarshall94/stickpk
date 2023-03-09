@@ -3,6 +3,7 @@ import Letter from "./Letter";
 const PlayerDisplay = ({ players }) => {
   return (
     <>
+    <h1>Scoreboard</h1>
       {players.map((player) => (
         <div className="player-container" key={player.id}>
           <p className="player-name">{player.name}</p>

@@ -8,12 +8,15 @@ import "./setup.css";
 const questions = [
   {
     questionText: "Who's Playing?",
+    subText: "Minimum 2 players",
   },
   {
     questionText: "Would you like to play with prompts?",
+    subText: "Movements will be suggested to you",
   },
   {
     questionText: "Are you ready to play?",
+    subText: "",
   },
 ];
 
@@ -86,6 +89,7 @@ const Setup = ({ players, setPlayers, setPrompts }) => {
             exit="exit"
           >
             <h1>{questions[currentQuestion].questionText}</h1>
+            <p>{questions[currentQuestion].subText}</p>
             {currentQuestion === 0 && (
               <Players players={players} setPlayers={setPlayers} />
             )}

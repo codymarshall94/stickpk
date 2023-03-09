@@ -48,14 +48,15 @@ const Modal = ({ onClose, closeModal, children, winner, reset }) => {
         animate="visible"
         exit="exit"
       >
-        <h1>Scoreboard</h1>
         {children}
         {!winner ? (
           <button className="modal-btn" onClick={() => closeModal()}>
             Close
           </button>
         ) : (
-          <button className="modal-btn" onClick={() => reset()}>Play Again</button>
+          <button className="modal-btn" onClick={() => reset()}>
+            Play Again
+          </button>
         )}
       </motion.div>
     </Backdrop>

@@ -1,3 +1,8 @@
+.game-player-container {
+  max-height: 19rem;
+  overflow-y: auto;
+}
+
 .player-container {
   height: 100vh;
   postion: relative;
@@ -37,6 +42,7 @@
   cursor: pointer;
   background-color: #6B59FC;
   width: 100%;
+  margin: 0 auto;
   margin-top: .5rem;
 }
 
@@ -73,6 +79,12 @@
 
 .primary {
   background-color: #6B59FC;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 
 

@@ -95,20 +95,21 @@ const Players = ({ setPlayers, players }) => {
 
   return (
     <>
-      {players.length !== 0 && (
-        <AnimatePresence>
-          {players.map((player) => (
-            <EditablePlayer
-              key={player.id}
-              player={player}
-              onEdit={handleEdit}
-              players={players}
-              deletePlayer={handleDelete}
-            />
-          ))}
-        </AnimatePresence>
-      )}
-
+      <div className="game-player-container">
+        {players.length !== 0 && (
+          <AnimatePresence>
+            {players.map((player) => (
+              <EditablePlayer
+                key={player.id}
+                player={player}
+                onEdit={handleEdit}
+                players={players}
+                deletePlayer={handleDelete}
+              />
+            ))}
+          </AnimatePresence>
+        )}
+      </div>
       <button className="add-player-btn" onClick={() => handleAdd()}>
         Add Player +
       </button>

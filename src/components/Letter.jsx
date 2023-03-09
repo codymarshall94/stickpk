@@ -3,7 +3,7 @@ import "../styles/letter.css";
 const Letter = ({ letter, size }) => {
   return (
     <div className={`letter-container ${size}`}>
-      <h1 className="letter">{letter}</h1>
+      <span className="letter">{letter}</span>
     </div>
   );
 };

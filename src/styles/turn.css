@@ -24,3 +24,26 @@
   margin: 0;
   list-style: none;
 }
+
+.turn-btn {
+    height: 24px;
+    width: 24px;
+    border: none;
+    border-radius: 0.25rem;
+    color: white;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.notify {
+  position: absolute;
+  top: 1rem;
+  background-color: #D65151;
+  color: white;
+  border-radius: .25rem;
+  padding: .5rem 1rem;
+}

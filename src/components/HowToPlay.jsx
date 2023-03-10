@@ -4,15 +4,16 @@ const HowToPlay = () => {
       <h2>How to Play</h2>
       <h3>Objective</h3>
       <p>
-        The aim of the game is to successfully execute the most jumps and
+        The aim of the game is to successfully execute the most stuck jumps and
         outlast all other players, thereby becoming the last person standing.{" "}
         <br />
       </p>
       <h3>Setup</h3>
       <p>
-        Firstly, select the number of players and assign each player a name.{" "}
+       Select the number of players and assign each player a name.{" "}
         <br />
-        Prompts may be selected during setup to suggest the movement to do.
+        Prompts may be selected during setup to suggest the movement to to be
+        done before the jump is stuck.{" "}
       </p>
       <h3>Gameplay</h3>
       <p>

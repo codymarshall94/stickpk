@@ -5,7 +5,7 @@ const HowToPlay = () => {
       <h3>Objective</h3>
       <p>
         The aim of the game is to successfully execute the most stuck jumps and
-        outlast all other players, thereby becoming the last person standing.{" "}
+        outlast all other players.{" "}
         <br />
       </p>
       <h3>Setup</h3>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/players.css";
 
@@ -6,8 +6,13 @@ const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
   const [name, setName] = useState(player.name);
   const [isEditing, setIsEditing] = useState(false);
 
+  const clearField = () => {
+    setName("");
+  };
+
   const handleEdit = () => {
     setIsEditing(true);
+    clearField();
   };
 
   const handleSave = () => {
@@ -36,6 +41,7 @@ const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
           onChange={(e) => setName(e.target.value)}
           className="player-input"
           maxLength={10}
+          autoFocus
         />
       ) : (
         <p className="player-name">{name}</p>

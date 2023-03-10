@@ -136,7 +136,7 @@ const Setup = ({ players, setPlayers, setPrompts }) => {
                     Back
                   </button>
                   <button className="setup-btn" onClick={handleNext}>
-                    Lets Go
+                    Let's Go
                   </button>
                 </>
               )}

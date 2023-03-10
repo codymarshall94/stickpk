@@ -15,6 +15,12 @@ const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
     clearField();
   };
 
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSave();
+    }
+  };
+
   const handleSave = () => {
     const newPlayer = { ...player, name: name };
     setIsEditing(false);
@@ -41,6 +47,7 @@ const EditablePlayer = ({ player, onEdit, deletePlayer }) => {
           onChange={(e) => setName(e.target.value)}
           className="player-input"
           maxLength={10}
+          onKeyDown={onKeyPress}
           autoFocus
         />
       ) : (

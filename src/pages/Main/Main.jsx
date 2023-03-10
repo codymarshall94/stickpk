@@ -1,6 +1,9 @@
 import "./main.css";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import Modal from "../../components/Modal";
+import HowToPlay from "../../components/HowToPlay";
 
 const topDropVariants = {
   hidden: {
@@ -40,6 +43,8 @@ const fadeIn = {
 };
 
 const Main = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <div className="main-container">
       <motion.h1
@@ -56,12 +61,24 @@ const Main = () => {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="main-subtitle"
+        className="main-link-container"
       >
         <Link className="main-link" to="/setup">
           Start Game
         </Link>
+        <button className="main-link" onClick={() => setModalOpen(true)}>
+          How to Play
+        </button>
       </motion.div>
+      <AnimatePresence initial={false} mode="out-in">
+        {modalOpen && (
+          <Modal
+            key="modal"
+            closeModal={() => setModalOpen(false)}
+            children={<HowToPlay />}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const containerVariant = {
   exit: { opacity: 0, transition: { duration: 0.5 } },
 };
 
-const Game = ({ players, setPlayers, prompts, setPrompts }) => {
+const Game = ({ players, setPlayers, prompts, setPrompts, loading }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [winner, setWinner] = useState(false);
   const navigate = useNavigate();
@@ -34,6 +34,7 @@ const Game = ({ players, setPlayers, prompts, setPrompts }) => {
     navigate("/");
   };
 
+  if (loading) return <h1>Loading...</h1>;
   return (
     <AnimatePresence mode="out-in">
       <motion.div

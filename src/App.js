@@ -9,18 +9,20 @@ import { useLocation } from "react-router-dom";
 function App() {
   const [players, setPlayers] = useState([]);
   const [prompts, setPrompts] = useState(false);
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
+
+  useEffect(() => {
+    const retrievePlayers = JSON.parse(localStorage.getItem("players"));
+    if (retrievePlayers) {
+      setPlayers(retrievePlayers);
+    }
+    setLoading(false);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("players", JSON.stringify(players));
   }, [players]);
-
-  useEffect(() => {
-    const localPlayers = JSON.parse(localStorage.getItem("players"));
-    if (localPlayers) {
-      setPlayers(localPlayers);
-    }
-  }, []);
 
   return (
     <div className="App">
@@ -45,6 +47,7 @@ function App() {
                 setPlayers={setPlayers}
                 prompts={prompts}
                 setPrompts={setPrompts}
+                loading={loading}
               />
             }
           />

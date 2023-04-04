@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+# Stick PK Game
+Stick PK Game is a game for parkour enthusiasts that is inspired by the game of "Horse" in basketball. In this game, players take turns challenging each other to complete a parkour move or sequence. If a player fails to complete the challenge, they receive a letter, starting with "S" and continuing with "T", "I", "C", and "K". Once a player receives all five letters, they are out of the game. The last player standing is the winner!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Stick PK Game also includes a feature for random prompts to challenge the players. This feature can be used to generate prompts for the players to incorporate into their parkour moves or sequences.
+**Link to project:** http://recruiters-love-seeing-live-demos.com/
 
-## Available Scripts
+![alt tag](http://placecorgi.com/1200/650)
 
-In the project directory, you can run:
+## How It's Made:
 
-### `yarn start`
+**Tech used:** React, Framer Motion, Local Storage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Stick PK Game is a single-page web application built using React and Framer Motion. The game data, including player names and letters, is stored in Local Storage, allowing players to pick up where they left off if they leave the game and return later.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Lessons Learned:
 
-### `yarn test`
+Developing Stick PK Game was a great opportunity to improve my skills in React and Framer Motion, as well as learn about working with Local Storage. I also gained experience in designing and developing a game that is fun and challenging for parkour enthusiasts. Overall, this project was a great learning experience and a lot of fun to build!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
